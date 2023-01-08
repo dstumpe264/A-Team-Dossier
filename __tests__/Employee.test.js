@@ -80,6 +80,11 @@ describe("Employee", () => {
             // expect getEmail to return 'stumpy@email.com'
             expect(employee.getEmail()).toEqual('stumpy@email.com');
         });
+        it("should return 'Employee", () => {
+            const employee = new Employee('Stumpy', 1, 'stumpy@email.com');
+
+            expect(employee.getRole()).toEqual('Employee');
+        })
     })
 
 
