@@ -42,7 +42,7 @@ describe("Employee", () => {
             // wrap the object initialization in a cb function 
             const cb = () => new Employee('stumpy', 1, 1);
 
-            const err = new Error("expected parameter 'email' to be a non-empty string");
+            const err = new Error("Expected parameter 'email' to be a non-empty string");
             //verify that an error was thrown in cb
             expect(cb).toThrowError(err);
         })
@@ -50,7 +50,7 @@ describe("Employee", () => {
             // wrap the object initialization in a cb function 
             const cb = () => new Employee('stumpy', 1);
 
-            const err = new Error("expected parameter 'email' to be a non-empty string");
+            const err = new Error("Expected parameter 'email' to be a non-empty string");
             //verify that an error was thrown in cb
             expect(cb).toThrowError(err);
         })
@@ -64,21 +64,21 @@ describe("Employee", () => {
             const employee = new Employee('Stumpy', 1, 'stumpy@email.com');
 
             // expect getName to return 'Stumpy'
-            expect(employee.getName).toEqual('Stumpy');
+            expect(employee.getName()).toEqual('Stumpy');
         });
         it("should return an employees id", () => {
             // initialize new employee
             const employee = new Employee('Stumpy', 1, 'stumpy@email.com');
 
             // expect getId to return 1
-            expect(employee.getId).toEqual(1);
+            expect(employee.getId()).toEqual(1);
         });
         it("should return an employees email", () => {
             // initialize new employee
             const employee = new Employee('Stumpy', 1, 'stumpy@email.com');
 
             // expect getEmail to return 'stumpy@email.com'
-            expect(employee.getEmail).toEqual('stumpy@email.com');
+            expect(employee.getEmail()).toEqual('stumpy@email.com');
         });
     })
 
