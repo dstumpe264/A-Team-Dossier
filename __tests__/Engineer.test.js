@@ -8,7 +8,7 @@ describe("Engineer", () => {
 
             expect(engineer.name).toEqual('Stumpy');
             expect(engineer.id).toEqual(1);
-            expect(engineer.email).toEqual('stumpy@mail.com');
+            expect(engineer.email).toEqual('stumpy@email.com');
             expect(engineer.github).toEqual('stumpy');
         });
         it("should throw an error if arguments are provided", () => {
