@@ -1,6 +1,36 @@
 
 
-const generate = ({ managerName, managerId, managerEmail, managerOffice}) =>
+function generateCards(member) {
+    if (member.getRole() === "Manager") {
+       return `<h1><li>${member.getRole()}</li></h1>
+                    <li>${member.getId()}</li>
+                    <li>${member.getName()}</li>
+                    <li>${member.getEmail()}</li>
+                    <li>${member.getOffice()}</li>
+
+                    `
+    } else if (member.getRole() === 'Engineer'){
+        return `<h1><li>${member.getRole()}</li></h1>
+                    <li>${member.getId()}</li>
+                    <li>${member.getName()}</li>
+                    <li>${member.getEmail()}</li>
+                    <li>${member.getGithub()}</li>
+                        
+                    `             
+    } else if (member.getRole() === 'Intern'){
+        return `<h1><li>${member.getRole()}</li></h1>
+                    <li>${member.getId()}</li>
+                    <li>${member.getName()}</li>
+                    <li>${member.getEmail()}</li>
+                    <li>${member.getSchool()}</li>
+
+                    `
+
+    };
+}
+
+
+const generate = (team) =>
     `<!DOCTYPE html>
     <html>
     <head>
@@ -10,21 +40,14 @@ const generate = ({ managerName, managerId, managerEmail, managerOffice}) =>
         <meta name='viewport' content='width=device-width, initial-scale=1'>
     </head>
     <body>
-        <section class = "manager">
+        <section class = "team">
             <h1>Team Manager</h1>
             <ul>
-                <li>Name: ${managerName}</li>
-                <li>Id: ${managerId}</li>
-                <li>Email: ${managerEmail}</li>
-                <li>Office Number: ${managerOffice}</li>
-            </ul>
+                
+                ${team.map(element => generateCards(element)).join('')}
 
-        </section>
-        <section class="employee">
-            <h1>Team Members</h1>
-            <ul>
-                <li></li>
             </ul>
+s
         </section>
         <section class = "button">
             <button id="add" class="btn">Add team member</button>

@@ -44,7 +44,7 @@ function getManager() {
         
 };
 
-function addEmployee(team) {
+function addEmployee() {
     return inquirer.prompt([
             {
                 type: 'input',
@@ -97,25 +97,28 @@ function addEmployee(team) {
             team.push(employee);
             console.log(team);
             if(answers.add){
-                addEmployee(team);
+                addEmployee();
+            } else {
+                console.log(team);
+                writeFile('index.html', generateHtml(team))
+
             }
-            return team;
-        });
+        })
 }
 
+
 const init = () => {
-    getManager(team)
+    getManager()
         .then((answers) => { 
             const { managerName, managerId, managerEmail, managerOffice, add} = answers;
-            const manager = new Manager(managerName, +managerId, managerEmail, +managerOffice);
+            var manager = new Manager(managerName, +managerId, managerEmail, +managerOffice);
             team.push(manager);
             if(add){
-                addEmployee(team);
+                addEmployee();
+            } else {
+                writeFile('index.html', generateHtml(team))
             }
-            return team;
         });
-    console.log(team);
-        // .then(() => writeFile('index.html', generateHtml(team)))
 };
 
 init();
