@@ -99,6 +99,7 @@ function addEmployee() {
                 addEmployee();
             } else {
                 writeFile('index.html', generateHtml(team))
+                open('index.html');
 
             }
         })
@@ -115,6 +116,7 @@ const init = () => {
                 addEmployee();
             } else {
                 writeFile('index.html', generateHtml(team))
+                open('index.html');
             }
         });
 };
