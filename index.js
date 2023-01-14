@@ -95,11 +95,9 @@ function addEmployee() {
                 var employee = new Engineer(answers.name, +answers.id, answers.email, answers.github);
             }
             team.push(employee);
-            console.log(team);
             if(answers.add){
                 addEmployee();
             } else {
-                console.log(team);
                 writeFile('index.html', generateHtml(team))
 
             }

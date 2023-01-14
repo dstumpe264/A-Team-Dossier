@@ -3,26 +3,26 @@
 function generateCards(member) {
     if (member.getRole() === "Manager") {
        return `<h1><li>${member.getRole()}</li></h1>
-                    <li>${member.getId()}</li>
-                    <li>${member.getName()}</li>
-                    <li>${member.getEmail()}</li>
-                    <li>${member.getOffice()}</li>
+                    <li>ID: ${member.getId()}</li>
+                    <li>Name: ${member.getName()}</li>
+                    <li>Email: <a href="mailto:${member.getEmail()}"> ${member.getEmail()}</a></li>
+                    <li>Office Number: ${member.getOffice()}</li>
 
                     `
     } else if (member.getRole() === 'Engineer'){
         return `<h1><li>${member.getRole()}</li></h1>
-                    <li>${member.getId()}</li>
-                    <li>${member.getName()}</li>
-                    <li>${member.getEmail()}</li>
-                    <li>${member.getGithub()}</li>
+                    <li>ID: ${member.getId()}</li>
+                    <li>Name: ${member.getName()}</li>
+                    <li>Email: <a href="mailto:${member.getEmail()}"> ${member.getEmail()}</a></li>
+                    <li>Github: <a href="https://github.com/${member.getGithub()}">${member.getGithub()}</a></li>
                         
                     `             
     } else if (member.getRole() === 'Intern'){
         return `<h1><li>${member.getRole()}</li></h1>
-                    <li>${member.getId()}</li>
-                    <li>${member.getName()}</li>
-                    <li>${member.getEmail()}</li>
-                    <li>${member.getSchool()}</li>
+                    <li>ID: ${member.getId()}</li>
+                    <li>Name: ${member.getName()}</li>
+                    <li>Email: <a href="mailto:${member.getEmail()}"> ${member.getEmail()}</a></li>
+                    <li>School: ${member.getSchool()}</li>
 
                     `
 
@@ -41,7 +41,7 @@ const generate = (team) =>
     </head>
     <body>
         <section class = "team">
-            <h1>Team Manager</h1>
+            <h1>Team</h1>
             <ul>
                 
                 ${team.map(element => generateCards(element)).join('')}
